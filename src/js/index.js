@@ -1,184 +1,70 @@
-const DEFAULT_TUNING = "E-A-D-G-B-E"
+const getKnownChords = require("./chords")
 
-const fifthStringBarreChords = {
-    "XX":     [-1, 1, 3, 3, 3, 1],
-    "XXmaj7": [-1, 1, 3, 2, 3, 1],
-    "XX7":    [-1, 1, 3, 1, 3, 1],
-    "XXm":    [-1, 1, 3, 3, 2, 1],
-    "XXm7":   [-1, 1, 3, 1, 2, 1],
-  }
-  
-  const sixthStringBarreChords = {
-    "XX": [1, 3, 3, 2, 1, 1],
-    "XXmaj7": [1, 3, 3, 2, 1, 0],
-    "XX7":    [1, 3, 1, 2, 1, 1],
-    "XXm":    [1, 3, 3, 1, 1, 1],
-    "XXm7":   [1, 3, 1, 1, 1, 1],
-  
-  }
 
-const buildStrings = (frets) => {
-    return frets.map(string => string === -1 ? "x" : string.toString()).join("-")
+
+
+const isChordLine = (line, keys) => {
+  const tokens = line.split(/\s/).filter(a => a) // strip out the ''s
+  return tokens.some(token => keys.includes(token))
 }
-
-const addStrings = (chord, tuning=DEFAULT_TUNING) => {
-  return `${chord}\n|-|-|-|-|-|\n${tuning}`
-}
-
-
-const incrementBarreChords = (chordKey, barreChordBase, semitonesToIncrement) => {
-  let newChords = {}
-  for (const [chord, frets] of Object.entries(barreChordBase)) {
-    const incrementedFrets = frets.map(fret => {
-      return fret === -1 ? -1 : fret + semitonesToIncrement;
-    })
-    newChords[chord.replace("XX",chordKey)] = incrementedFrets
-  }
-  return newChords
-}
-
-const knownChords = new Map();
-
-const addToKnownChords = (chords) => {
-  for (const [key, frets] of Object.entries(chords)) {
-    knownChords.set(key, addStrings(buildStrings(frets)))
-  }
-}
-
-
-// A
-knownChords.set("A", addStrings("x-0-2-2-2-0"));
-knownChords.set("Amaj7", addStrings("x-0-2-1-2-0"));
-knownChords.set("A7", addStrings("x-0-2-0-2-0"));
-knownChords.set("Am", addStrings("x-0-2-2-1-0"));
-knownChords.set("Am7", addStrings("x-0-2-0-1-0"));
-knownChords.set("Am7/G", addStrings("x-0-2-0-1-0")); // Starman
-
-// Bb
-const bFlatChords = incrementBarreChords("Bb", fifthStringBarreChords, 0)
-addToKnownChords(bFlatChords)
-knownChords.set("Bb/A", addStrings("x-0-0-3-3-1")); // Starman
-
-// B
-knownChords.set("B", addStrings("x-2-4-4-4-2"));
-knownChords.set("Bmaj7", addStrings("x-2-1-3-0-x"));
-knownChords.set("B7", addStrings("x-2-1-2-0-2"));
-knownChords.set("Bm", addStrings("x-2-4-4-3-2"));
-knownChords.set("Bm7", addStrings("x-2-0-2-0-2"));
-
-// C
-knownChords.set("C", addStrings(buildStrings([-1,3,2,0,1,0])))
-knownChords.set("Cmaj7", addStrings(buildStrings([-1,3,2,0,0,0])))
-knownChords.set("C7", addStrings(buildStrings([-1,3,2,3,1,0])))
-knownChords.set("Cm", addStrings(buildStrings([-1,3,1,0,-1,-1])))
-knownChords.set("Cm7", addStrings(buildStrings([-1,3,1,3,-1,-1])))
-
-// C/G
-knownChords.set("C/G", addStrings(buildStrings([3,3,2,0,1,0])))
-
-
-// C#
-const cSharpChords = incrementBarreChords("C#", fifthStringBarreChords, 3)
-addToKnownChords(cSharpChords)
-
-
-// D
-knownChords.set("D", addStrings("x-x-0-2-3-2"))
-knownChords.set("Dmaj7", addStrings("x-x-0-2-2-2"))
-knownChords.set("D7", addStrings("x-x-0-2-1-2"))
-knownChords.set("Dm", addStrings("x-x-0-2-3-1"))
-knownChords.set("Dm7", addStrings("x-x-0-2-1-1"))
-
-// Eb
-const eBChords = incrementBarreChords("Eb", fifthStringBarreChords, 5)
-addToKnownChords(eBChords)
-
-// E
-knownChords.set("E", addStrings("0-2-2-1-0-0"))
-knownChords.set("Emaj7", addStrings("0-2-1-1-0-0"))
-knownChords.set("E7", addStrings("0-2-0-1-0-0"))
-knownChords.set("Em", addStrings("0-2-2-0-0-0"))
-knownChords.set("Em7", addStrings("0-2-2-0-3-0"))
-
-
-// F
-const fChords = incrementBarreChords("F", sixthStringBarreChords, 0)
-addToKnownChords(fChords)
-
-// F#
-const fSharpChords = incrementBarreChords("F#", sixthStringBarreChords, 1)
-addToKnownChords(fSharpChords)
-
-// G
-knownChords.set("G", addStrings(buildStrings([3, 2, 0, 0, 0, 3])))
-knownChords.set("Gmaj7", addStrings(buildStrings([3, -1, 0, 0, 0, 2])))
-knownChords.set("G7", addStrings(buildStrings([3, 2, 0, 0, 0, 1])))
-knownChords.set("Gm", addStrings(buildStrings([3, 1, 0, 0, 0, 3])))
-knownChords.set("Gm7", addStrings(buildStrings([-1, 1, 3, 0, 3, 0])))
-
-// G# & Ab
-const gSharpChords = incrementBarreChords("G#", sixthStringBarreChords, 3)
-addToKnownChords(gSharpChords)
-const aFlatChords = incrementBarreChords("Ab", sixthStringBarreChords, 3)
-addToKnownChords(aFlatChords)
-
-
-
-
-
-const isChordLine = (line) => {
-    const keys = Array.from(knownChords.keys())
-
-    const tokens = line.split(/\s/).filter(a=>a) // strip out the ''s
-    return tokens.every(token => keys.includes(token))
-  }
 
 
 
 function buildChordObject(line) {
-    const nonSpaceRegex = /[^\s]+/g
-    const matches = [...line.matchAll(nonSpaceRegex)]
-    let firstSpace = 0
-    const chordData = matches.map((match, i) => {
-        return {
-            index: i,
-            start: match.index,
-            end: match.index + match[0].length,
-            chord: match[0]
-        }
-    })
-
-    for (const chordDatum of chordData) {
-        chordDatum.precedingSpaces = chordDatum.start - firstSpace
-        firstSpace = chordDatum.end
+  const nonSpaceRegex = /[^\s]+/g
+  const matches = [...line.matchAll(nonSpaceRegex)]
+  let firstSpace = 0
+  const chordData = matches.map((match, i) => {
+    return {
+      index: i,
+      start: match.index,
+      end: match.index + match[0].length,
+      chord: match[0]
     }
-    return chordData
+  })
+
+  for (const chordDatum of chordData) {
+    chordDatum.precedingSpaces = chordDatum.start - firstSpace
+    firstSpace = chordDatum.end
+  }
+  return chordData
 }
 
-function hackMe () {
-    if (document.querySelector('code')) {
-        dangerouslyReplaceChordsWithSomethingColourful()
+const isBlockLine = (line) => {
+  return /^\[(.*)\]$/.test(line.trim())
+}
+
+function chordify(songData) {
+  const knownChords = getKnownChords()
+  const keys = Array.from(knownChords.keys())
+  const songLines = songData.split("\n")
+  const highlightedLines = songLines.map((line, index) => {
+    let replacePreCode = false
+    // Markdown processing hacks on a <pre><code> tag to the head of the first line, whatever it is
+    if (/<pre><code>/.test(line)) {
+      line = line.replace("<pre><code>", "").replace("</code></pre>", "")
+      replacePreCode = true
     }
+    if (isBlockLine(line)) {
+      return `${replacePreCode ? "<pre><code>" : ""}<span class="block" >${line}</span > `
+    }
+    if (!isChordLine(line, keys)) {
+      return `${replacePreCode ? "<pre><code>" : ""}${line}`
+    }
+
+    return `${replacePreCode ? "<pre><code>" : ""}${chordLine(line, knownChords)}`
+  })
+  return highlightedLines.join("\n")
 }
 
 
+function chordLine(line, knownChords) {
+  const chordData = buildChordObject(line)
 
-
-function dangerouslyReplaceChordsWithSomethingColourful() {
-    const songData = document.querySelector('code').innerHTML
-    const songLines = songData.split("\n")
-    const highlightedLines = songLines.map(line => {
-        if (!isChordLine(line)) {
-            return line
-        }
-        const chordData = buildChordObject(line)
-        return chordData.map(chordDatum => {
-            const spaces = ' '.repeat(chordDatum.precedingSpaces)
-            return `${spaces}<span class="chord" data-finger-positioning="${knownChords.get(chordDatum.chord)}">${chordDatum.chord}</span>`
-        }).join("")
-    })
-    document.querySelector('code').innerHTML = highlightedLines.join("\n")
+  return chordData.map(chordDatum => {
+    const spaces = ' '.repeat(chordDatum.precedingSpaces)
+    return `${spaces}<span class="chord" data-finger-positioning="${knownChords.get(chordDatum.chord)}">${chordDatum.chord}</span>`
+  }).join("")
 }
 
-
-window.onload = hackMe
+module.exports = { chordify } 

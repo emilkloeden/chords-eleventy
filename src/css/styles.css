@@ -165,8 +165,16 @@ transition: .3s opacity;
 /* End song.module.css */
 
 /* Start hacks due to markdown insufficient specificity */
-pre {
+pre, code {
   font-family: 'Inconsolata', 'Space Mono',  monospace;
   font-size: 1rem;
 }
+
 /* End hacks due to markdown insufficient specificity */
+
+/* New functionality for [Verse], [Bridge] etc */
+.block {
+  color: var(--quarternary-color);
+  font-size: 0.7rem;
+  font-style: italic;
+}
