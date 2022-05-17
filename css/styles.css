@@ -1,0 +1,180 @@
+/* Start global.css */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+:root {
+  --primary-color: #66bfbf;
+  --secondary-color: #eaf6f6;
+  --tertiary-color: #fcfefe;
+  --quaternary-color: #f76b8a;
+}
+/* End global.css */
+
+/* Start utils.module.css */
+.heading2Xl {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin: 1rem 0;
+}
+
+.headingXl {
+  font-size: 2rem;
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin: 1rem 0;
+}
+
+.headingLg {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 1rem 0;
+}
+
+.headingMd {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.borderCircle {
+  border-radius: 9999px;
+}
+
+.colorInherit {
+  color: inherit;
+}
+
+.padding1px {
+  padding-top: 1px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem {
+  margin: 0 0 1.25rem;
+}
+
+.lightText {
+  color: var(--quaternary-color)
+}
+
+/* End utils.module.css */
+
+/* Start layout.module.css */
+.container {
+  max-width: 36rem;
+  padding: 0 1rem;
+  margin: 3rem auto 6rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.backToHome {
+  margin: 3rem 0 0;
+  color: var(--quaternary-color)
+}
+/* End layout.module.css */
+
+/* Start song.module.css */
+.song {
+  font-family: 'Inconsolata', 'Space Mono',  monospace;
+  font-size: 1rem;
+}
+.chord {
+  color: var(--primary-color);
+  font-weight: bold;
+
+  /* https://blog.logrocket.com/creating-beautiful-tooltips-with-only-css/ */
+  position: relative;
+  border-bottom: 1px dashed var(--primary-color);
+}
+
+.chord:before {
+  content: attr(data-finger-positioning);
+  position: absolute;
+
+  /* vertically center */
+/* top:0%;
+right:0%; */
+/* transform:translateY(-100%); */
+/* bottom: 100%; */
+/* left: 50%; */
+/* margin-left:-50px; */
+transform:translateY(-50%);
+/* transform:translateX(-50%); */
+
+  /* Add above other elements */
+  z-index: 10;
+
+/* move to top */
+/* top:100%; */
+/* margin-top:15px; and add a small left margin */
+
+/* basic styles */
+width:100px;
+padding:10px;
+border-radius:20px;
+background:var(--primary-color);
+color: var(--tertiary-color);
+text-align:center;
+font-size: 0.6rem;
+
+opacity:0; /* hide by default */
+transition: .3s opacity;
+}
+
+.chord:hover:before {
+  opacity: 0.9;
+}
+
+/* End song.module.css */
+
+/* Start hacks due to markdown insufficient specificity */
+pre, code {
+  font-family: 'Inconsolata', 'Space Mono',  monospace;
+  font-size: 1rem;
+}
+
+/* End hacks due to markdown insufficient specificity */
+
+/* New functionality for [Verse], [Bridge] etc */
+.block {
+  color: var(--quarternary-color);
+  font-size: 0.7rem;
+  font-style: italic;
+}
