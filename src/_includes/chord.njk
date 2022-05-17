@@ -4,4 +4,4 @@ layout: base.njk
 <h1 class="headingXl">{{ title }}</h1>
 <p class="lightText">{{ artist }}</p>
 {{ content | chordify | safe }}
-<a class="backToHome" href="/">← Back to home</a>
+<a class="backToHome" href="{{ '/' | url }}">← Back to home</a>

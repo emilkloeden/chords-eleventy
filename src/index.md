@@ -22,7 +22,7 @@ layout: base.njk
     <ul class="list">
 {% for page in collections.chords %}
 <li class="listItem">
-    <a href="{{ page.url }}">{{ page.data.artist}} - {{ page.data.title}}</a>
+    <a href="'{{ page.url | url }}'">{{ page.data.artist}} - {{ page.data.title}}</a>
 </li>
 {% endfor %}
 </ul>
