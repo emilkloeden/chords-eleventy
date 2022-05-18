@@ -1,7 +1,9 @@
 ---
 title: Five Years
 artist: David Bowie
-tabAuthor: https://www.ultimate-guitar.com/u/crosskip
+tabAuthor: crosskip
+tabAuthorUrl: https://www.ultimate-guitar.com/u/crosskip
+originalUrl: https://tabs.ultimate-guitar.com/tab/david-bowie/five-years-chords-1506553
 ---
 
     [Verse 1]

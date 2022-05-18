@@ -1,7 +1,9 @@
 ---
 title: "Blood"
 artist: "My Chemical Romance"
-tabAuthor: "https://www.ultimate-guitar.com/u/belavista%20man"
+tabAuthor: belavista man
+tabAuthorUrl: "https://www.ultimate-guitar.com/u/belavista%20man"
+originalUrl: https://tabs.ultimate-guitar.com/tab/my-chemical-romance/blood-chords-547369
 ---
 
     [Verse 1]

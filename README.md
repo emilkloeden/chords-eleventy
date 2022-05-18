@@ -1,5 +1,7 @@
 # Chords - Eleventy
-A static-site application for displaying guitar chords. Built with [Eleventy](https://www.11ty.dev/).
+A portfolio project displaying guitar chords with finger-positions on-hover. Part of my Chords project - building the same site in different frameworks/with different tools.
+
+This edition is built using [Eleventy](https://www.11ty.dev/), a javascript static-site generator.
 
 Making use of:
 - Markdown templates

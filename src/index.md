@@ -1,6 +1,7 @@
 ---
 title: Chords - Eleventy!
 layout: base.njk
+description: A portfolio project displaying guitar chords with finger-positions on-hover.
 ---
 
 <header class="header">
@@ -15,7 +16,7 @@ layout: base.njk
     </h1>
     </header>
 <section class="headingMd">
-    <p>A demo app displaying guitar chords</p>
+    <p>{{ description }}</p>
 </section>
 <section class="headingMd padding1px">
     <h2 class="headingLg">Chords</h2>

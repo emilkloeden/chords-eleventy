@@ -1,7 +1,9 @@
 ---
 title: "Starman"
 artist: "David Bowie"
-tabAuthor: "https://www.ultimate-guitar.com/u/jamestholden"
+tabAuthor: jamestholden
+tabAuthorUrl: "https://www.ultimate-guitar.com/u/jamestholden"
+originalUrl: https://tabs.ultimate-guitar.com/tab/david-bowie/starman-chords-145205
 key: "F"
 ---
     [Intro]

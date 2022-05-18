@@ -3,5 +3,24 @@ layout: base.njk
 ---
 <h1 class="headingXl">{{ title }}</h1>
 <p class="lightText">{{ artist }}</p>
+<div class="metadata">
+{% if tabAuthor %}
+    <p>Chords courtesy of 
+        {% if tabAuthorUrl %}
+            <a href="{{ tabAuthorUrl }}">{{ tabAuthor }}</a>
+        {% else %}
+            {{ tabAuthor }}
+        {% endif %}
+    </p>
+{% endif %}
+{% if originalUrl %}
+    <p>Original URL: 
+        <a href="{{ originalUrl }}" target="_blank">{{ originalUrl }}</a>
+    </p>
+{% endif %}
+{% if capoFret %}
+    <p class="highlight">Place capo on fret {{ capoFret }}</p>
+{% endif %}
+</div>
 {{ content | chordify | safe }}
 <a class="backToHome" href="{{ '/' | url }}">← Back to home</a>

@@ -1,7 +1,7 @@
 ---
 title: "Anna Freud"
 artist: "The National"
-tabAuthor: "https://www.guitartabs.cc/tabs/t/the_national/anna_freud_crd.html"
+originalUrl: "https://www.guitartabs.cc/tabs/t/the_national/anna_freud_crd.html"
 ---
 
     [Intro]

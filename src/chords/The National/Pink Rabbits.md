@@ -1,7 +1,9 @@
 ---
 title: Pink Rabbits
 artist: The National
-tabAuthor: "https://www.ultimate-guitar.com/u/troublefoundme"
+tabAuthor: troublefoundme
+tabAuthorUrl: "https://www.ultimate-guitar.com/u/troublefoundme"
+originalUrl: https://tabs.ultimate-guitar.com/tab/the-national/pink-rabbits-chords-1248205
 capoFret: 2
 ---
      [Intro]
