@@ -14,6 +14,6 @@
     "@11ty/eleventy": "^1.0.1"
   },
   "dependencies": {
-    "@emilkloeden/eleventy-plugin-chordify": "^1.0.0"
+    "@emilkloeden/eleventy-plugin-chordify": "^1.0.1"
   }
 }
