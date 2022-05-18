@@ -5,13 +5,13 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addWatchTarget("./src/css/")
     eleventyConfig.addWatchTarget("./src/js/")
     eleventyConfig.addPassthroughCopy("./src/images/")
-    eleventyConfig.addFilter("chordify", chordify })
+    eleventyConfig.addFilter("chordify", chordify)
 
 
-return {
-    dir: {
-        input: "src",
-        output: "public"
+    return {
+        dir: {
+            input: "src",
+            output: "public"
+        }
     }
-}
 }
