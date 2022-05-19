@@ -10,4 +10,5 @@ Making use of:
 - GitHub Actions and GitHub Pages
 
 ## See it in action
+![Screenshot](screenshot.png)
 [Chords - Eleventy](https://emilkloeden.github.io/chords-eleventy/)
